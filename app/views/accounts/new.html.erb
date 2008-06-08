@@ -1,0 +1,27 @@
+<%= error_messages_for @account %>
+<% form_for @account, :action => url(:secure_magic_accounts) do %>
+<table>
+  <tr>
+	<td><label for="account_login">Login</label></td>
+    <td><%= text_control :login, :class => "user_input" %></td>
+  </tr>
+  <tr>
+	<td><label for="account_email">Email</label></td>
+    <td><%= text_control :email, :class => "user_input" %></td>
+  </tr>
+  <tr>
+	<td><label for="account_password">Password</label></td>
+    <td><%= password_control :password, :class => "user_input" %></td>
+  </tr>
+  <tr>
+	<td><label for="account_password_confirmation">Password Confirmation</label></td>
+    <td><%= password_control :password_confirmation, :class => "user_input" %></td>
+  </tr>
+  <tr>
+	<td><%= submit_button "Sign up" %></td>
+  </tr>
+  <tr>
+	<td><%= link_to "Lost Password", url(:secure_magic_lost_password) %></td>
+  </tr>
+</table>
+<% end %>

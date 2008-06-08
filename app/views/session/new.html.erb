@@ -1,0 +1,19 @@
+<% form_tag :action => url(:login) do -%>
+<table>
+<tr>
+	<td><label for="login">Login</label></td>
+	<td><%= text_field :name => "login", :class => "user_input" %></td>
+</tr>
+<tr>
+	<td><label for="password">Password</label></td>
+	<td><%= password_field :name => "password", :class => "user_input" %></td>
+</tr>
+<tr>
+	<td><label for="remember_me">Remember me</label></td>
+	<td><%= checkbox_field :name => 'remember_me' %></td>
+</tr>
+<tr>
+	<td><%= submit_button 'Log in' %></td>
+</tr>
+</table>
+<% end -%>
