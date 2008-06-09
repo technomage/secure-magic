@@ -152,5 +152,6 @@ module SecureMagic
 end
 
 Merb::BootLoader.after_app_loads do
+  SecureMagic::Application.send(:include, SecureMagic::Controller)
   Application.send(:include, SecureMagic::Controller)
 end

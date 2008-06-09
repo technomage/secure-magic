@@ -1,4 +1,4 @@
-<% form_tag :action => url(:login) do -%>
+<% form_tag :action => url(:secure_magic_login) do -%>
 <table>
 <tr>
 	<td><label for="login">Login</label></td>
@@ -15,5 +15,8 @@
 <tr>
 	<td><%= submit_button 'Log in' %></td>
 </tr>
+  <tr>
+	<td><%= link_to "Lost Password", url(:secure_magic_lost_password) %></td>
+  </tr>
 </table>
 <% end -%>

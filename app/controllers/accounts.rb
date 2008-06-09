@@ -1,17 +1,6 @@
 #require File.join(File.dirname(__FILE__), '..', '..', "lib", "authenticated_system", "authenticated_dependencies")
 class SecureMagic::Accounts < SecureMagic::Application
   provides :xml
-
-  # Encrypts some data with the salt.
-  def self.encrypt(password, salt)
-    Digest::SHA1.hexdigest("--#{salt}--#{password}--")
-  end
-  
-  # Authenticates a account by their login name and unencrypted password.  Returns the account or nil.
-  def self.authenticate(login, password)
-    u = find_activated_authenticated_model_with_login(login) # need to get the salt
-    u && u.authenticated?(password) ? u : nil
-  end
   
   def new
     only_provides :html
