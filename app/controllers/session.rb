@@ -25,11 +25,5 @@ class SecureMagic::Session < SecureMagic::Application
     reset_session
     redirect_back_or_default('/')
   end
-
-  def app_layout
-    host = request.host_name
-    puts "Request host: #{host}"
-    host
-  end
   
 end

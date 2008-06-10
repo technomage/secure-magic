@@ -32,6 +32,15 @@ class SecureMagic::Accounts < SecureMagic::Application
   def authenticated?(password)
     crypted_password == encrypt(password)
   end      
+  
+  def current_account_name
+    if current_account && current_account != :false
+      #puts "Found current account #{current_account.inspect} login #{current_account.login}"
+      current_account.login
+    else
+      "Please Login"
+    end
+  end
 
   # before filter 
   def encrypt_password

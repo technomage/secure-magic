@@ -13,7 +13,8 @@ if defined?(Merb::Plugins)
   # Configuration options:
   # :layout - the layout to use; defaults to :secure_magic
   # :mirror - which path component types to use on copy operations; defaults to all
-  Merb::Slices::config[:secure_magic][:layout] = :use_app_layout
+  #Merb::Slices::config[:secure_magic] ||= {}
+  #Merb::Slices::config[:secure_magic][:layout] = :use_app_layout
   
   # load the controller extensions
   require 'secure_magic_controller.rb'
@@ -67,6 +68,10 @@ if defined?(Merb::Plugins)
         name(:secure_magic_passord_changed)
       scope.match("/accounts/lost_password").to(:controller => "Accounts", :action => "lost_password").
         name(:secure_magic_lost_password)
+      scope.match("/accounts/my_account").to(:controller => "Accounts", :action => "my_account").
+        name(:secure_magic_my_account)
+      scope.match("/current_account").to(:controller => "Accounts", :action => "current_account_name").
+        name(:secure_magic_current_account)
       scope.resources :accounts
       scope.resources :session
     end
